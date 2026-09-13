@@ -1,0 +1,39 @@
+\documentclass[11pt,oneside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=1.2in}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+% Dynamic Git Metadata
+\IfFileExists{git_info.tex}{
+    \input{git_info.tex}
+}{
+    \newcommand{\gitHash}{local}
+    \newcommand{\gitDate}{\today}
+    \newcommand{\gitMessage}{Local Build}
+}
+
+% Header and Footer Styling
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\slshape \leftmark}
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{\tiny \color{gray} Built from commit \texttt{\gitHash} on \gitDate\ --- \gitMessage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.2pt}
+
+\title{\textbf{The Art of Computer Programming}\\ \large Notes, Proofs, and Modern C++ Implementations}
+\author{Your Name, Ph.D.}
+\date{\gitDate}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Volume 1: Fundamental Algorithms}
+\input{vol1/sec1_intro.tex}
+
+\end{document}
