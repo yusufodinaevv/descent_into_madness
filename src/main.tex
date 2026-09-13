@@ -1,39 +1,56 @@
-cat << 'EOF' > src/main.tex
-\documentclass[11pt,oneside]{book}
+\documentclass[12pt]{article}
+\usepackage{amsmath,amsfonts,amssymb}
+\pagestyle{empty}
+\setlength{\textwidth}{6 in}
+\topmargin 0in
+\oddsidemargin 0.0in
+\setlength{\topmargin}{-1.2in}
+\setlength{\textheight}{10in}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\sm}{\sum_{n=1}^\infty}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\zz}{\mathbb{Z}}
+\newcommand{\rr}{\mathbb{R}}
+\newcommand{\nn}{\mathbb{N}}
+\newcommand{\qq}{\mathbb{Q}}
+\newcommand{\cc}{\mathbb{C}}
+\newcommand{\T}{\mathcal{T}}
+\usepackage{amsthm}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{geometry}
-\geometry{margin=1.2in}
-\usepackage{fancyhdr}
-\usepackage{xcolor}
-\usepackage{hyperref}
-
-\IfFileExists{git_info.tex}{
-    \input{git_info.tex}
-}{
-    \newcommand{\gitHash}{local}
-    \newcommand{\gitDate}{\today}
-    \newcommand{\gitMessage}{Local Build}
-}
-
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\slshape \leftmark}
-\fancyhead[R]{\thepage}
-\fancyfoot[C]{\tiny \color{gray} Built from commit \texttt{\gitHash} on \gitDate\ --- \gitMessage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.2pt}
-
-\title{\textbf{Descent into Madness}\\ \large A Mathematical Study of The Art of Computer Programming}
-\author{Yusuf Odinaev, Ph.D.}
-\date{\gitDate}
+\theoremstyle{definition}
+\newtheorem{exmp}{Example}[section]
+\usepackage[english]{babel}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\usepackage{graphicx}
 
 \begin{document}
-\maketitle
-\tableofcontents
+\begin{enumerate}
+    \item What is a \textit{global} characterization of differentiability? Do differentiable functions have any algebraic or discrete invariants? I'm tired of using the bones and stick definition of differentiability and need something better. For instance, one could envision a situation where a function has an associated invariant (sth like a homotopy group for top. spaces) and the number of singular points of this function is the same as the number of holes of this invariant or something like that.
+    \begin{itemize}
+    
+    \item For example, a function $f: \rr \to \rr$ given by $f(x) = |x|$ has a corner at $x = 0$ whereas the function $f(x) = x^2$ doesn't. How can you capture this \textit{corner}?
 
-\chapter{Volume 1: Fundamental Algorithms}
-\input{vol1/sec1_intro.tex}
+    \item In analysis we have the $\epsilon - \delta$ definition of continuity, which is a mess and there's a topological one, which is much cleaner. What is an idea that cleans up this notion of differentiability?
+
+    \item (Fiction) Devise a process of \textit{melting} a function, whereby all the smooth points will turn into liquid and all the singular points will remain hard as a rock. That's how you can tell if the function is differentiable or not: melt it and see if any rocks remain at the bottom. It goes without saying that the process of melting should be a relatively easy one, so that we can quickly check if a function is differentiable or not. It seems like points should be assigned with \textit{weights.} Singular points are heavy whereas the smooth points are light. Question: what does it mean to \textit{melt} a function?
+    \end{itemize}
+
+\item Two non-homeomorphic topological spaces can have the same homotopy groups. What exactly is it about topological spaces that homotopy groups don't capture? Let's say that certain information $X$ is not captured by the homotopy groups. Can you devise another invariant of the topological space that does capture this information $X?$
+
+\item Investigate where the hell this weird notion of $topological$ $space$ came from. Of course, it all started with Riemann's dissertation, which must be carefully read. Did Riemann perhaps envision a different notion? 
+
+\item Let $f: E \to F$ be a linear map of two normed vector spaces over the same field. Does $f$ have to be continuous?
+\begin{enumerate}
+    \item Linearity of $f$ just means that triangles will be sent to triangles, and if you stretch the first triangle by $\lambda,$ then the image of this triangle will also be stretched by $\lambda.$ Question: what about $infinitly$ small triangles? Riemann mentions in his dissertation that a complex differentiable function sends infinitely small triangles to infinitely small triangles. What the hell is even an infinitely small triangle?
+    \item Let $x$ and $y$ be two points in $E,$ and let $A$ be the triangle formed by $x, y, x+y.$
+\end{enumerate}
+\end{enumerate}
 
 \end{document}
-EOF

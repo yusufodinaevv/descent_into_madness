@@ -14,25 +14,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Extract Git Metadata for LaTeX
-        run: |
-          cd src
-          GIT_HASH=$(git rev-parse --short HEAD)
-          GIT_DATE=$(git log -1 --format=%cd --date=format:'%Y-%m-%d %H:%M:%S')
-          GIT_MSG=$(git log -1 --format=%s | tr -d '[\#$&_%]')
-
-          cat << 'EOF_GIT' > git_info.tex
-          \newcommand{\gitHash}{placeholder_hash}
-          \newcommand{\gitDate}{placeholder_date}
-          \newcommand{\gitMessage}{placeholder_msg}
-          EOF_GIT
-
-          sed -i "s/placeholder_hash/$GIT_HASH/" git_info.tex
-          sed -i "s/placeholder_date/$GIT_DATE/" git_info.tex
-          sed -i "s/placeholder_msg/$GIT_MSG/" git_info.tex
 
       - name: Compile LaTeX to PDF
         uses: xu-cheng/latex-action@v3
