@@ -1,3 +1,4 @@
+cat << 'EOF' > src/main.tex
 \documentclass[11pt,oneside]{book}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb,amsthm}
@@ -7,7 +8,6 @@
 \usepackage{xcolor}
 \usepackage{hyperref}
 
-% Dynamic Git Metadata
 \IfFileExists{git_info.tex}{
     \input{git_info.tex}
 }{
@@ -16,7 +16,6 @@
     \newcommand{\gitMessage}{Local Build}
 }
 
-% Header and Footer Styling
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\slshape \leftmark}
@@ -25,8 +24,8 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.2pt}
 
-\title{\textbf{The Art of Computer Programming}\\ \large Notes, Proofs, and Modern C++ Implementations}
-\author{Your Name, Ph.D.}
+\title{\textbf{Descent into Madness}\\ \large A Mathematical Study of The Art of Computer Programming}
+\author{Yusuf Odinaev, Ph.D.}
 \date{\gitDate}
 
 \begin{document}
@@ -37,3 +36,4 @@
 \input{vol1/sec1_intro.tex}
 
 \end{document}
+EOF

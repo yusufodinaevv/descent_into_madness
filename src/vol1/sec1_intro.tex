@@ -1,0 +1,11 @@
+cat << 'EOF' > src/vol1/sec1_intro.tex
+\section{Algorithm E (Euclid's Algorithm)}
+Given two positive integers $m$ and $n$, find their greatest common divisor $\gcd(m, n)$.
+
+\subsection{Algorithmic Formulation}
+\begin{itemize}
+    \item \textbf{E1. [Find remainder]} Divide $m$ by $n$ and let $r$ be the remainder ($0 \le r < n$).
+    \item \textbf{E2. [Is it zero?]} If $r = 0$, terminate; $n$ is the answer.
+    \item \textbf{E3. [Reduce]} Set $m \leftarrow n$, $n \leftarrow r$, and go to step E1.
+\end{itemize}
+EOF
